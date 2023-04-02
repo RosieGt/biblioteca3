@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block title %}Livro: {{ livro.titulo }} - {{ livro.editora }} {% endblock title %}
+{% block content %}
+<h1>Detalhes do livro</h1>
+<h2>Livro:</h2>
+<div class="d-flex justify-content-end">
+    <div class="btn-group">
+        <a href="{% url 'atualizar_livro' livro.pk %}" class="btn btn-primary">Atualizar</a>
+        <a href="{% url 'deletar_livro' livro.pk %}" class="btn btn-danger">Deletar</a>
+    </div>
+</div>
+<div class="card mt-4">
+    <div class="card-header">
+        {{ livro.titulo }}
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Autor: {{ livro.autor }}</li>
+            <li class="list-group-item">Editora: {{ livro.editora }}</li>
+            <li class="list-group-item">Descrição: {{ livro.descricao }}</li>
+            <li class="list-group-item">
+                {% if livro.img  %}
+                <img width="400" height="300" src="{{ livro.img.url }}" >
+                {% else %}
+                Sem imagem.
+                {% endif %}
+            </li>  
+        </ul>
+    </div>
+</div>
+{% endblock content %}

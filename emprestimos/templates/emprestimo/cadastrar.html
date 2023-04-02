@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% load bootstrap5 %}
+    {% block title %}Emprestimo{% endblock title %}
+    {% block content %}
+    <h1>Fazer emprestimo de Livros</h1>
+
+    <form method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Emprestar
+    </button>
+    {% endbuttons %}
+    </form>
+    {% endblock content %}

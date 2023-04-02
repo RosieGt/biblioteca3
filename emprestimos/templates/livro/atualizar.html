@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load bootstrap5 %}
+    {% block title %}Atualizar livro{% endblock title %}
+    {% block content %}
+    <h1>Atualizar livro</h1>
+    <h2>Livro: {{ form.instance.livro }}</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Atualizar
+    </button>
+    {% endbuttons %}
+    </form>
+    {% endblock content %}

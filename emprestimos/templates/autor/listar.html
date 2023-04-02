@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+    {% block title %}Autores{% endblock title %}
+    {% block content %}
+    <h1>Biblioteca</h1>
+    <h2>Autores:</h2>
+    <div class="d-flex justify-content-end">
+    <a class="btn btn-primary" href="{% url 'cadastrar_autor'%}" role="button">Cadastrar Autor</a>
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for autor in autores %}
+        <li class="list-group-item" ><a href="{% url 'detalhar_autor' autor.pk %}">{{ autor.nome }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endblock content %}
